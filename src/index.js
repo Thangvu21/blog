@@ -7,12 +7,16 @@ const port = 3000;
 
 // http logger
 app.use(morgan('combined'));
+// kiem tra file tinh
+app.use(express.static(path.join(__dirname, 'public')));
 
 // template engine init engine
 app.engine("hbs", engine({extname: '.hbs'}));
+
 // su dung
 app.set('view engine', '.hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
+
 // __dirname la thu muc src cua minh
 
 app.get('/', (req, res) => {
